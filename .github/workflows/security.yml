@@ -19,7 +19,7 @@ permissions:
   contents: read
 
 env:
-  CODACY_ENABLE: no
+  CODACY_ENABLE: yes
 
 jobs:
   security-scan:

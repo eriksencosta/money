@@ -16,7 +16,7 @@ concurrency:
 env:
   JAVA_VERSION: 21
   JAVA_DISTRIBUTION: temurin
-  CODACY_ENABLE: no
+  CODACY_ENABLE: yes
 
 jobs:
   build:
