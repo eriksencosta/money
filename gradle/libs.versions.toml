@@ -1,0 +1,32 @@
+[versions]
+kotlin-stdlib = { require = "[1.9,2.0[" }
+kotlinx-serialization-json = { require = "1.6.3" }
+caffeine = { require = "[2.9,3.0[" }
+detekt = { require = "[1.23.5,2.0[" }
+icu = { require = "[75.1,80.0[" }
+junit-jupiter-engine = { require = "[5.10,6.0[" }
+junit-platform-launcher = { require = "[1.10,2.0[" }
+ktor = { require = "[2.3.12,3.0[" }
+percentage = { require = "[0.2,1.0[" }
+sonatype-central-upload = { require = "[1.0.3,2.0[" }
+
+[libraries]
+kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "kotlin-stdlib" }
+kotlin-test-junit5 = { module = "org.jetbrains.kotlin:kotlin-test-junit5", version.ref = "kotlin-stdlib" }
+kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinx-serialization-json" }
+caffeine = { module = "com.github.ben-manes.caffeine:caffeine", version.ref = "caffeine" }
+detekt-formatting = { module = "io.gitlab.arturbosch.detekt:detekt-formatting", version.ref = "detekt" }
+detekt-libraries = { module = "io.gitlab.arturbosch.detekt:detekt-rules-libraries", version.ref = "detekt" }
+icu = { module = "com.ibm.icu:icu4j", version.ref = "icu" }
+junit-jupiter-engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "junit-jupiter-engine" }
+junit-platform-launcher = { module = "org.junit.platform:junit-platform-launcher", version.ref = "junit-platform-launcher" }
+ktor-client-cio = { module = "io.ktor:ktor-client-cio", version.ref = "ktor" }
+ktor-serialization-kotlinx-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor" }
+percentage = { module = "com.eriksencosta.math:percentage", version.ref = "percentage" }
+
+[plugins]
+jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin-stdlib" }
+detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
+dokka = { id = "org.jetbrains.dokka", version.ref = "kotlin-stdlib" }
+serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin-stdlib" }
+sonatype-central-upload = { id = "cl.franciscosolis.sonatype-central-upload", version.ref = "sonatype-central-upload" }
