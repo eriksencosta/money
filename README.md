@@ -1,5 +1,8 @@
 # Money
 
+[![Codacy grade](https://img.shields.io/codacy/grade/a6fc46b250fd447d881922b200214d03)](https://app.codacy.com/gh/eriksencosta/money/dashboard)
+[![Codacy coverage](https://img.shields.io/codacy/coverage/a6fc46b250fd447d881922b200214d03)](https://app.codacy.com/gh/eriksencosta/money/coverage)
+
 Monetary calculations and allocations made easy.
 
 ## Installation
