@@ -41,9 +41,6 @@ configurations {
 }
 
 dependencies {
-    // Kotlin dependencies.
-    implementation(libs.kotlinx.serialization.json)
-
     // Non-transitive dependencies.
     implementation(libs.caffeine)
 
@@ -54,6 +51,7 @@ dependencies {
     gradleTasks(libs.icu)
     gradleTasks(libs.ktor.client.cio)
     gradleTasks(libs.ktor.serialization.kotlinx.json)
+    gradleTasks(libs.kotlinx.serialization.json)
 
     // Plugins.
     detektPlugins(libs.detekt.formatting)
