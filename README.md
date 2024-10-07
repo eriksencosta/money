@@ -48,9 +48,9 @@ total allocate 2                                // [USD 47.25, USD 47.25]
 total allocate ratios                           // [USD 56.70, USD 37.80]
 ```
 
-The library supports arithmetic operations with monetary amounts, calculations with percentages and allocation, making
-it simple to model use cases like installments payments (e.g., buy now, pay later), foreign exchange, investments
-yields, and tax collection. Cryptocurrencies are also fully supported out of the box:
+The library supports arithmetic operations with monetary amounts, calculations with percentages, and allocation, making
+it simple to model use cases like installment payments (e.g., buy now, pay later), foreign exchange, investment yields,
+and tax collection. Cryptocurrencies are also fully supported out of the box:
 
 ```kotlin
 val price = 0.01607580 money "BTC"           // BTC 0.01607580
