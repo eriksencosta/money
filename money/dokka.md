@@ -29,13 +29,13 @@ val rate = 62555.60 money "USD"              // USD 62555.60
 val totalInUsd = total exchange rate         // USD 1005.63
 ```
 
-[Refer to the documentation](https://github.com/eriksencosta/money/docs) for more about how to work with monetary
-amounts, supported currencies, available operations, rounding, and allocation.
+[Refer to the documentation](https://github.com/eriksencosta/money/tree/trunk/docs) for more about how to work with
+monetary amounts, supported currencies, available operations, rounding, and allocation.
 
 ## Installation and documentation
 
 The [installation procedures](https://github.com/eriksencosta/money#installation) and the
-[documentation](https://github.com/eriksencosta/money/docs) can be read in the
+[documentation](https://github.com/eriksencosta/money/tree/trunk/docs) can be read in the
 [project repository in GitHub](https://github.com/eriksencosta/money).
 
 
