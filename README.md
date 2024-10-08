@@ -54,11 +54,11 @@ and tax collection. Cryptocurrencies are also fully supported out of the box:
 
 ```kotlin
 val price = 0.01607580 money "BTC"           // BTC 0.01607580
-val transactionFee = 1.25.percent()          // 1.5%
+val transactionFee = 1.25.percent()          // 1.25%
 val total = price increaseBy transactionFee  // BTC 0.01627675
 val installments = total allocate 3          // [BTC 0.00542559, BTC 0.00542558, BTC 0.00542558]
 
-val rate = 62_555.60 money "USD"             // USD 62,555.60
+val rate = 62_555.60 money "USD"             // USD 62555.60
 val totalInUsd = total exchange rate         // USD 1005.63
 ```
 
