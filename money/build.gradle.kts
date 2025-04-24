@@ -1,6 +1,5 @@
 import org.gradle.api.tasks.testing.logging.TestExceptionFormat
 import org.gradle.api.tasks.testing.logging.TestLogEvent
-import org.gradle.api.tasks.testing.logging.TestLogging
 import org.jetbrains.dokka.gradle.DokkaTask
 import java.net.URI
 import java.util.Locale
