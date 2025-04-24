@@ -75,20 +75,12 @@ internal abstract class CurrenciesDataClassesGenerator {
         |
         |package @@MAIN_PACKAGE@@@@SUB_PACKAGE@@
         |
-        |import com.eriksencosta.money.caching.Cache
         |import com.eriksencosta.money.currency.CurrencyData
         |import com.eriksencosta.money.currency.UndefinedCurrencyData
-        |import com.eriksencosta.money.currency.createSizedCache
         |import com.eriksencosta.money.currency.findByCode
         |
         |@Suppress("CyclomaticComplexMethod")
         |internal object @@CLASS_NAME@@ {
-        |    private const val NUMBER_OF_DATA_CLASSES = @@NUMBER_OF_DATA_CLASSES@@
-        |
-        |    private val cache: Cache<Map<String, CurrencyData>> by lazy {
-        |        createSizedCache(NUMBER_OF_DATA_CLASSES)
-        |    }
-        |
         |    private val prioritizedCurrencies = CurrenciesData0().currencies
         |
         |    fun of(code: String): CurrencyData = prioritizedCurrencies.getOrElse(code) {
@@ -97,9 +89,6 @@ internal abstract class CurrenciesDataClassesGenerator {
         |            else -> @@ELSE_BRANCH@@
         |        }
         |    }
-        |
-        |    private fun findByCode(key: String, code: String, block: () -> Map<String, CurrencyData>): CurrencyData =
-        |        cache.get(key) { block() }.findByCode(code)
         |}
         |
     """.trimMargin()
@@ -109,18 +98,10 @@ internal abstract class CurrenciesDataClassesGenerator {
         |
         |package @@MAIN_PACKAGE@@@@SUB_PACKAGE@@
         |
-        |import com.eriksencosta.money.caching.Cache
-        |import com.eriksencosta.money.currency.createSizedCache
         |import com.eriksencosta.money.currency.findCodeBySecondaryCode
         |
         |@Suppress("CyclomaticComplexMethod")
         |internal object @@CLASS_NAME@@ {
-        |    private const val NUMBER_OF_LOOKUP_CLASSES = @@NUMBER_OF_LOOKUP_CLASSES@@
-        |
-        |    private val cache: Cache<Map<String, String>> by lazy {
-        |        createSizedCache(NUMBER_OF_LOOKUP_CLASSES)
-        |    }
-        |
         |    private val prioritizedCurrencies = CurrenciesLookup0().currencies
         |
         |    fun of(code: String): String = prioritizedCurrencies.getOrElse(code) {
@@ -129,9 +110,6 @@ internal abstract class CurrenciesDataClassesGenerator {
         |            else -> @@ELSE_BRANCH@@
         |        }
         |    }
-        |
-        |    private fun findCodeBySecondaryCode(key: String, code: String, block: () -> Map<String, String>): String =
-        |        cache.get(key) { block() }.findCodeBySecondaryCode(code)
         |}
         |
     """.trimMargin()
@@ -326,7 +304,7 @@ internal abstract class CurrenciesDataClassesGenerator {
     @Suppress("MagicNumber")
     private fun rootDataFileSpec(groupedCurrencies: GroupedCurrencies) = run {
         val entries = groupedCurrencies.filterKeys { it > 0 }.map { (group, currencies) ->
-            """in "%s".."%s" -> findByCode("Data%d", code) { CurrenciesData%d().currencies }""".format(
+            """in "%s".."%s" -> CurrenciesData%d().currencies.findByCode(code)""".format(
                 currencies.first().code,
                 currencies.last().code,
                 group,
@@ -349,7 +327,7 @@ internal abstract class CurrenciesDataClassesGenerator {
     @Suppress("MagicNumber")
     private fun rootLookupFileSpec(groupedCurrencies: GroupedCurrencies) = run {
         val entries = groupedCurrencies.filterKeys { it > 0 }.map { (group, currencies) ->
-            """in "%s".."%s" -> findCodeBySecondaryCode("Lookup%d", code) { CurrenciesLookup%d().currencies }""".format(
+            """in "%s".."%s" -> CurrenciesLookup%d().currencies.findCodeBySecondaryCode(code)""".format(
                 currencies.first().secondaryCode.escape(),
                 currencies.last().secondaryCode.escape(),
                 group,

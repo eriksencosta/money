@@ -40,9 +40,6 @@ configurations {
 }
 
 dependencies {
-    // Non-transitive dependencies.
-    implementation(libs.caffeine)
-
     // Transitive dependencies.
     api(libs.percentage)
 

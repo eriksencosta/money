@@ -1,7 +1,6 @@
 [versions]
 kotlin-stdlib = { require = "[1.9,2.0[" }
 kotlinx-serialization-json = { require = "1.6.3" }
-caffeine = { require = "[2.9,3.0[" }
 detekt = { require = "[1.23.5,2.0[" }
 icu = { require = "[77.1,77.2[" }
 junit-jupiter-engine = { require = "[5.10,6.0[" }
@@ -14,7 +13,6 @@ sonatype-central-upload = { require = "[1.0.3,2.0[" }
 kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "kotlin-stdlib" }
 kotlin-test-junit5 = { module = "org.jetbrains.kotlin:kotlin-test-junit5", version.ref = "kotlin-stdlib" }
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinx-serialization-json" }
-caffeine = { module = "com.github.ben-manes.caffeine:caffeine", version.ref = "caffeine" }
 detekt-formatting = { module = "io.gitlab.arturbosch.detekt:detekt-formatting", version.ref = "detekt" }
 detekt-libraries = { module = "io.gitlab.arturbosch.detekt:detekt-rules-libraries", version.ref = "detekt" }
 icu = { module = "com.ibm.icu:icu4j", version.ref = "icu" }

@@ -23,7 +23,6 @@ The previous example shows at a glance how the library works. Discover more in t
 2. [Operations](usage/operations.md): get a complete picture of the supported operations
 3. [Rounding](usage/rounding.md): learn how flexible are the rounding options for your use cases
 4. [Allocation](usage/allocation.md): calculate installments correctly by using the allocation features
-5. [Performance](usage/performance.md): fine tune the library cache for your performance requirements
 
 ## Appendixes
 

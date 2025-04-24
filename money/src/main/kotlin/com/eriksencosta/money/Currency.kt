@@ -18,13 +18,7 @@
 
 package com.eriksencosta.money
 
-import com.eriksencosta.money.Currency.Factory.of
 import com.eriksencosta.money.CustomCurrency.CustomCurrencyConfig
-import com.eriksencosta.money.caching.Cache
-import com.eriksencosta.money.caching.CacheConfig
-import com.eriksencosta.money.caching.DefaultCache
-import com.eriksencosta.money.caching.NoCache
-import com.eriksencosta.money.caching.createCache
 import com.eriksencosta.money.currency.CurrencyResolution
 import java.util.Objects.hash
 
@@ -84,24 +78,13 @@ public sealed class Currency protected constructor(
      * A [Currency] factory.
      */
     public companion object Factory {
-        private var cache: Cache<Currency> = createDefaultCache()
-            set(custom) = synchronized(this) {
-                field = when {
-                    custom is DefaultCache -> custom
-                    field is DefaultCache && !field.isInitialized() -> custom
-                    else -> error("The factory cache can't be replaced once it is configured or initialized")
-                }
-            }
-
         /**
          * Creates a [StandardizedCurrency] for a standardized circulating currency or cryptocurrency.
          *
          * @param[code] The code or secondary code of the currency.
          * @throws[IllegalArgumentException] When no currency is found for [code].
          */
-        public infix fun of(code: String): StandardizedCurrency = cachedCurrency(code) {
-            CurrencyResolution.thorough.resolve(code)
-        }
+        public infix fun of(code: String): StandardizedCurrency = CurrencyResolution.thorough.resolve(code)
 
         /**
          * Creates a [CirculatingCurrency] for a standardized circulating currency.
@@ -109,9 +92,8 @@ public sealed class Currency protected constructor(
          * @param[code] The code or secondary code of the currency.
          * @throws[IllegalArgumentException] When no currency is found for [code].
          */
-        public infix fun circulating(code: String): CirculatingCurrency = cachedCurrency(code) {
-            CurrencyResolution.circulating.resolve(code) as CirculatingCurrency
-        }
+        public infix fun circulating(code: String): CirculatingCurrency = CurrencyResolution.circulating.resolve(code)
+            as CirculatingCurrency
 
         /**
          * Creates a [CryptoCurrency] for a standardized cryptocurrency.
@@ -119,9 +101,8 @@ public sealed class Currency protected constructor(
          * @param[code] The code or secondary code of the currency.
          * @throws[IllegalArgumentException] When no currency is found for [code].
          */
-        public infix fun crypto(code: String): CryptoCurrency = cachedCurrency(code) {
-            CurrencyResolution.crypto.resolve(code) as CryptoCurrency
-        }
+        public infix fun crypto(code: String): CryptoCurrency = CurrencyResolution.crypto.resolve(code)
+            as CryptoCurrency
 
         /**
          * Creates a [CustomCurrency].
@@ -142,36 +123,8 @@ public sealed class Currency protected constructor(
          */
         public fun custom(code: String, minorUnits: Int, config: CustomCurrencyConfig.() -> Unit): CustomCurrency =
             CustomCurrencyConfig(code, minorUnits).apply(config).let {
-                cachedCurrency("$code/${it.type}/$minorUnits/${it.hash()}") {
-                    CustomCurrency(it.code, it.secondaryCode, it.name, it.symbol, it.type, it.minorUnits)
-                }
+                CustomCurrency(it.code, it.secondaryCode, it.name, it.symbol, it.type, it.minorUnits)
             }
-
-        /**
-         * Configures the [Factory] cache. The method must be called before the cache is initialized (i.e., before any
-         * call to the [of] method) and should be called once.
-         *
-         * @param[config] A configuration block to set up the cache.
-         * @throws[IllegalStateException] When the cache was previously initialized or configured.
-         */
-        internal fun configureCache(config: CacheConfig.() -> Unit) { cache = createCache(config) }
-
-        /**
-         * Disables the [Factory] cache. The method must be called before the cache is initialized (i.e., before any
-         * call to the [of] method) and should be called once.
-         *
-         * @throws[IllegalStateException] When the cache was previously initialized or configured.
-         */
-        internal fun disableCache() { cache = NoCache() }
-
-        internal fun resetCache() = cache.clean().also {
-            cache = createDefaultCache()
-        }
-
-        private fun createDefaultCache(): Cache<Currency> = DefaultCache(createCache())
-
-        @Suppress("UNCHECKED_CAST")
-        private fun <T : Currency> cachedCurrency(key: String, block: () -> T): T = cache.get(key, block) as T
     }
 }
 

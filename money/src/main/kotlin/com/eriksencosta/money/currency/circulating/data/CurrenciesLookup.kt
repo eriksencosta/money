@@ -23,31 +23,20 @@
 
 package com.eriksencosta.money.currency.circulating.data
 
-import com.eriksencosta.money.caching.Cache
-import com.eriksencosta.money.currency.createSizedCache
 import com.eriksencosta.money.currency.findCodeBySecondaryCode
 
 @Suppress("CyclomaticComplexMethod")
 internal object CurrenciesLookup {
-    private const val NUMBER_OF_LOOKUP_CLASSES = 6
-
-    private val cache: Cache<Map<String, String>> by lazy {
-        createSizedCache(NUMBER_OF_LOOKUP_CLASSES)
-    }
-
     private val prioritizedCurrencies = CurrenciesLookup0().currencies
 
     fun of(code: String): String = prioritizedCurrencies.getOrElse(code) {
         when (code) {
-            in "004".."288" -> findCodeBySecondaryCode("Lookup1", code) { CurrenciesLookup1().currencies }
-            in "292".."620" -> findCodeBySecondaryCode("Lookup2", code) { CurrenciesLookup2().currencies }
-            in "626".."938" -> findCodeBySecondaryCode("Lookup3", code) { CurrenciesLookup3().currencies }
-            in "940".."995" -> findCodeBySecondaryCode("Lookup4", code) { CurrenciesLookup4().currencies }
-            in "996".."999" -> findCodeBySecondaryCode("Lookup5", code) { CurrenciesLookup5().currencies }
+            in "004".."288" -> CurrenciesLookup1().currencies.findCodeBySecondaryCode(code)
+            in "292".."620" -> CurrenciesLookup2().currencies.findCodeBySecondaryCode(code)
+            in "626".."938" -> CurrenciesLookup3().currencies.findCodeBySecondaryCode(code)
+            in "940".."995" -> CurrenciesLookup4().currencies.findCodeBySecondaryCode(code)
+            in "996".."999" -> CurrenciesLookup5().currencies.findCodeBySecondaryCode(code)
             else -> ""
         }
     }
-
-    private fun findCodeBySecondaryCode(key: String, code: String, block: () -> Map<String, String>): String =
-        cache.get(key) { block() }.findCodeBySecondaryCode(code)
 }

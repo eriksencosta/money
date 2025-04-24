@@ -23,74 +23,63 @@
 
 package com.eriksencosta.money.currency.crypto.data
 
-import com.eriksencosta.money.caching.Cache
 import com.eriksencosta.money.currency.CurrencyData
 import com.eriksencosta.money.currency.UndefinedCurrencyData
-import com.eriksencosta.money.currency.createSizedCache
 import com.eriksencosta.money.currency.findByCode
 
 @Suppress("CyclomaticComplexMethod")
 internal object CurrenciesData {
-    private const val NUMBER_OF_DATA_CLASSES = 47
-
-    private val cache: Cache<Map<String, CurrencyData>> by lazy {
-        createSizedCache(NUMBER_OF_DATA_CLASSES)
-    }
-
     private val prioritizedCurrencies = CurrenciesData0().currencies
 
     fun of(code: String): CurrencyData = prioritizedCurrencies.getOrElse(code) {
         when (code) {
-            in "10LJNZXHS".."1MKH0F6ZM" -> findByCode("Data1", code) { CurrenciesData1().currencies }
-            in "1ML8T1GJ6".."26DQ579GL" -> findByCode("Data2", code) { CurrenciesData2().currencies }
-            in "26W7JCWZJ".."2SS7R57NM" -> findByCode("Data3", code) { CurrenciesData3().currencies }
-            in "2T99BSRZP".."3FD6ZRHD2" -> findByCode("Data4", code) { CurrenciesData4().currencies }
-            in "3H20VHS4Z".."46J4RC83R" -> findByCode("Data5", code) { CurrenciesData5().currencies }
-            in "46LXHW242".."4PNL61HBD" -> findByCode("Data6", code) { CurrenciesData6().currencies }
-            in "4PWW9V7BT".."58537HRPB" -> findByCode("Data7", code) { CurrenciesData7().currencies }
-            in "58C8BG58J".."602XSM6GX" -> findByCode("Data8", code) { CurrenciesData8().currencies }
-            in "605NMSTKP".."6JB14WNLK" -> findByCode("Data9", code) { CurrenciesData9().currencies }
-            in "6KB4GFXG6".."75T0GP5WJ" -> findByCode("Data10", code) { CurrenciesData10().currencies }
-            in "76F94LSWK".."7WRD7TJGW" -> findByCode("Data11", code) { CurrenciesData11().currencies }
-            in "7X1XLVCB4".."8HTL22Z8Q" -> findByCode("Data12", code) { CurrenciesData12().currencies }
-            in "8JHVGRP3L".."986NQK6FQ" -> findByCode("Data13", code) { CurrenciesData13().currencies }
-            in "98MBBPTCK".."9V66W5M31" -> findByCode("Data14", code) { CurrenciesData14().currencies }
-            in "9V7055V26".."BG73J7X4V" -> findByCode("Data15", code) { CurrenciesData15().currencies }
-            in "BH3XPBG8V".."C36B1LTHB" -> findByCode("Data16", code) { CurrenciesData16().currencies }
-            in "C3K8KFV71".."CNNLQTXLJ" -> findByCode("Data17", code) { CurrenciesData17().currencies }
-            in "CP6817N4B".."DCLQGHB7K" -> findByCode("Data18", code) { CurrenciesData18().currencies }
-            in "DCWNXSQQ2".."F13T60SCG" -> findByCode("Data19", code) { CurrenciesData19().currencies }
-            in "F1CB20TJZ".."FR9D0M141" -> findByCode("Data20", code) { CurrenciesData20().currencies }
-            in "FRL4M33V1".."GH18F8X9K" -> findByCode("Data21", code) { CurrenciesData21().currencies }
-            in "GH19PKSH8".."H4N07FDCQ" -> findByCode("Data22", code) { CurrenciesData22().currencies }
-            in "H4WQ8DMKS".."HKMCSJCKC" -> findByCode("Data23", code) { CurrenciesData23().currencies }
-            in "HKWN2W8BB".."J3KTSDGXR" -> findByCode("Data24", code) { CurrenciesData24().currencies }
-            in "J3ZLNM7HL".."JNWL3D02V" -> findByCode("Data25", code) { CurrenciesData25().currencies }
-            in "JP07GJX2P".."K4QB4C4MJ" -> findByCode("Data26", code) { CurrenciesData26().currencies }
-            in "K4XQ9W83D".."KRC74D4T1" -> findByCode("Data27", code) { CurrenciesData27().currencies }
-            in "KRMN05SQP".."LHB3QXMB3" -> findByCode("Data28", code) { CurrenciesData28().currencies }
-            in "LHG7JSCRM".."M2GR9LKZ6" -> findByCode("Data29", code) { CurrenciesData29().currencies }
-            in "M2HHNHT0D".."MRT0NS181" -> findByCode("Data30", code) { CurrenciesData30().currencies }
-            in "MRWMZXF10".."NBM8KWVX6" -> findByCode("Data31", code) { CurrenciesData31().currencies }
-            in "NBVPDBTLB".."NV372F9Z9" -> findByCode("Data32", code) { CurrenciesData32().currencies }
-            in "NV703NKLG".."PKRTR3JHV" -> findByCode("Data33", code) { CurrenciesData33().currencies }
-            in "PL1B6SZMG".."QBLW2V2XS" -> findByCode("Data34", code) { CurrenciesData34().currencies }
-            in "QBM57R2TL".."QZ1MMQ934" -> findByCode("Data35", code) { CurrenciesData35().currencies }
-            in "QZF0Z87KP".."RKQK5M4KJ" -> findByCode("Data36", code) { CurrenciesData36().currencies }
-            in "RKZCT9KMH".."S8J06RVF2" -> findByCode("Data37", code) { CurrenciesData37().currencies }
-            in "S9Q3S18KN".."T4FV9055Q" -> findByCode("Data38", code) { CurrenciesData38().currencies }
-            in "T4J32WNT8".."TS0ZHWLV8" -> findByCode("Data39", code) { CurrenciesData39().currencies }
-            in "TS2347Z7N".."VGG0T9QTG" -> findByCode("Data40", code) { CurrenciesData40().currencies }
-            in "VGNGZNRZN".."W93DCQ5GP" -> findByCode("Data41", code) { CurrenciesData41().currencies }
-            in "WBQHCRVJ0".."WVBTKS08V" -> findByCode("Data42", code) { CurrenciesData42().currencies }
-            in "WVSG2WRVJ".."XKF87K8VJ" -> findByCode("Data43", code) { CurrenciesData43().currencies }
-            in "XKVJ62F6J".."Z4LCRP3TH" -> findByCode("Data44", code) { CurrenciesData44().currencies }
-            in "Z4LQD46FT".."ZTF814N3M" -> findByCode("Data45", code) { CurrenciesData45().currencies }
-            in "ZTLVP2BW6".."ZZLV65C4V" -> findByCode("Data46", code) { CurrenciesData46().currencies }
+            in "10LJNZXHS".."1MKH0F6ZM" -> CurrenciesData1().currencies.findByCode(code)
+            in "1ML8T1GJ6".."26DQ579GL" -> CurrenciesData2().currencies.findByCode(code)
+            in "26W7JCWZJ".."2SS7R57NM" -> CurrenciesData3().currencies.findByCode(code)
+            in "2T99BSRZP".."3FD6ZRHD2" -> CurrenciesData4().currencies.findByCode(code)
+            in "3H20VHS4Z".."46J4RC83R" -> CurrenciesData5().currencies.findByCode(code)
+            in "46LXHW242".."4PNL61HBD" -> CurrenciesData6().currencies.findByCode(code)
+            in "4PWW9V7BT".."58537HRPB" -> CurrenciesData7().currencies.findByCode(code)
+            in "58C8BG58J".."602XSM6GX" -> CurrenciesData8().currencies.findByCode(code)
+            in "605NMSTKP".."6JB14WNLK" -> CurrenciesData9().currencies.findByCode(code)
+            in "6KB4GFXG6".."75T0GP5WJ" -> CurrenciesData10().currencies.findByCode(code)
+            in "76F94LSWK".."7WRD7TJGW" -> CurrenciesData11().currencies.findByCode(code)
+            in "7X1XLVCB4".."8HTL22Z8Q" -> CurrenciesData12().currencies.findByCode(code)
+            in "8JHVGRP3L".."986NQK6FQ" -> CurrenciesData13().currencies.findByCode(code)
+            in "98MBBPTCK".."9V66W5M31" -> CurrenciesData14().currencies.findByCode(code)
+            in "9V7055V26".."BG73J7X4V" -> CurrenciesData15().currencies.findByCode(code)
+            in "BH3XPBG8V".."C36B1LTHB" -> CurrenciesData16().currencies.findByCode(code)
+            in "C3K8KFV71".."CNNLQTXLJ" -> CurrenciesData17().currencies.findByCode(code)
+            in "CP6817N4B".."DCLQGHB7K" -> CurrenciesData18().currencies.findByCode(code)
+            in "DCWNXSQQ2".."F13T60SCG" -> CurrenciesData19().currencies.findByCode(code)
+            in "F1CB20TJZ".."FR9D0M141" -> CurrenciesData20().currencies.findByCode(code)
+            in "FRL4M33V1".."GH18F8X9K" -> CurrenciesData21().currencies.findByCode(code)
+            in "GH19PKSH8".."H4N07FDCQ" -> CurrenciesData22().currencies.findByCode(code)
+            in "H4WQ8DMKS".."HKMCSJCKC" -> CurrenciesData23().currencies.findByCode(code)
+            in "HKWN2W8BB".."J3KTSDGXR" -> CurrenciesData24().currencies.findByCode(code)
+            in "J3ZLNM7HL".."JNWL3D02V" -> CurrenciesData25().currencies.findByCode(code)
+            in "JP07GJX2P".."K4QB4C4MJ" -> CurrenciesData26().currencies.findByCode(code)
+            in "K4XQ9W83D".."KRC74D4T1" -> CurrenciesData27().currencies.findByCode(code)
+            in "KRMN05SQP".."LHB3QXMB3" -> CurrenciesData28().currencies.findByCode(code)
+            in "LHG7JSCRM".."M2GR9LKZ6" -> CurrenciesData29().currencies.findByCode(code)
+            in "M2HHNHT0D".."MRT0NS181" -> CurrenciesData30().currencies.findByCode(code)
+            in "MRWMZXF10".."NBM8KWVX6" -> CurrenciesData31().currencies.findByCode(code)
+            in "NBVPDBTLB".."NV372F9Z9" -> CurrenciesData32().currencies.findByCode(code)
+            in "NV703NKLG".."PKRTR3JHV" -> CurrenciesData33().currencies.findByCode(code)
+            in "PL1B6SZMG".."QBLW2V2XS" -> CurrenciesData34().currencies.findByCode(code)
+            in "QBM57R2TL".."QZ1MMQ934" -> CurrenciesData35().currencies.findByCode(code)
+            in "QZF0Z87KP".."RKQK5M4KJ" -> CurrenciesData36().currencies.findByCode(code)
+            in "RKZCT9KMH".."S8J06RVF2" -> CurrenciesData37().currencies.findByCode(code)
+            in "S9Q3S18KN".."T4FV9055Q" -> CurrenciesData38().currencies.findByCode(code)
+            in "T4J32WNT8".."TS0ZHWLV8" -> CurrenciesData39().currencies.findByCode(code)
+            in "TS2347Z7N".."VGG0T9QTG" -> CurrenciesData40().currencies.findByCode(code)
+            in "VGNGZNRZN".."W93DCQ5GP" -> CurrenciesData41().currencies.findByCode(code)
+            in "WBQHCRVJ0".."WVBTKS08V" -> CurrenciesData42().currencies.findByCode(code)
+            in "WVSG2WRVJ".."XKF87K8VJ" -> CurrenciesData43().currencies.findByCode(code)
+            in "XKVJ62F6J".."Z4LCRP3TH" -> CurrenciesData44().currencies.findByCode(code)
+            in "Z4LQD46FT".."ZTF814N3M" -> CurrenciesData45().currencies.findByCode(code)
+            in "ZTLVP2BW6".."ZZLV65C4V" -> CurrenciesData46().currencies.findByCode(code)
             else -> UndefinedCurrencyData(code)
         }
     }
-
-    private fun findByCode(key: String, code: String, block: () -> Map<String, CurrencyData>): CurrencyData =
-        cache.get(key) { block() }.findByCode(code)
 }

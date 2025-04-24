@@ -23,34 +23,23 @@
 
 package com.eriksencosta.money.currency.circulating.data
 
-import com.eriksencosta.money.caching.Cache
 import com.eriksencosta.money.currency.CurrencyData
 import com.eriksencosta.money.currency.UndefinedCurrencyData
-import com.eriksencosta.money.currency.createSizedCache
 import com.eriksencosta.money.currency.findByCode
 
 @Suppress("CyclomaticComplexMethod")
 internal object CurrenciesData {
-    private const val NUMBER_OF_DATA_CLASSES = 7
-
-    private val cache: Cache<Map<String, CurrencyData>> by lazy {
-        createSizedCache(NUMBER_OF_DATA_CLASSES)
-    }
-
     private val prioritizedCurrencies = CurrenciesData0().currencies
 
     fun of(code: String): CurrencyData = prioritizedCurrencies.getOrElse(code) {
         when (code) {
-            in "ADP".."BUK" -> findByCode("Data1", code) { CurrenciesData1().currencies }
-            in "BWP".."GQE" -> findByCode("Data2", code) { CurrenciesData2().currencies }
-            in "GRD".."MGA" -> findByCode("Data3", code) { CurrenciesData3().currencies }
-            in "MGF".."SDG" -> findByCode("Data4", code) { CurrenciesData4().currencies }
-            in "SDP".."XBA" -> findByCode("Data5", code) { CurrenciesData5().currencies }
-            in "XBB".."ZWR" -> findByCode("Data6", code) { CurrenciesData6().currencies }
+            in "ADP".."BUK" -> CurrenciesData1().currencies.findByCode(code)
+            in "BWP".."GQE" -> CurrenciesData2().currencies.findByCode(code)
+            in "GRD".."MGA" -> CurrenciesData3().currencies.findByCode(code)
+            in "MGF".."SDG" -> CurrenciesData4().currencies.findByCode(code)
+            in "SDP".."XBA" -> CurrenciesData5().currencies.findByCode(code)
+            in "XBB".."ZWR" -> CurrenciesData6().currencies.findByCode(code)
             else -> UndefinedCurrencyData(code)
         }
     }
-
-    private fun findByCode(key: String, code: String, block: () -> Map<String, CurrencyData>): CurrencyData =
-        cache.get(key) { block() }.findByCode(code)
 }

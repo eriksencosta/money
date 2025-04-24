@@ -30,17 +30,12 @@ import com.eriksencosta.money.allocation.difference.OnFirst
 import com.eriksencosta.money.allocation.difference.OnFirstSmallest
 import com.eriksencosta.money.allocation.difference.OnLastGreatest
 import com.eriksencosta.money.allocation.difference.OnLastNonZero
-import com.eriksencosta.money.caching.configureCache
-import com.eriksencosta.money.caching.disableCache
 import java.math.BigDecimal
 import java.math.RoundingMode
 import java.util.Locale
-import java.util.concurrent.TimeUnit
 import kotlin.random.Random
 import kotlin.test.Test
 import kotlin.test.assertEquals
-import kotlin.test.assertFalse
-import kotlin.test.assertTrue
 
 class UsageExamples {
     @Test
@@ -670,32 +665,5 @@ class UsageExamples {
         assertEquals(List(7) { 14.29 money "USD" }, details.calculations)
         assertEquals(List(7) { 0 money "USD" }, details.adjustments)
         assertEquals(List(7) { 14.29 money "USD" }, details.allocations)
-    }
-
-    @Test
-    fun `Performance code example`() {
-        run { // Configuring the cache
-            // resetCache() is called for testing purposes. The method is part of the internal API and can't be called
-            // by client code.
-            Currency.resetCache()
-
-            configureCache {
-                maximumItems = 100
-                expirationTime = 2
-                expirationTimeUnit = TimeUnit.HOURS
-            }
-
-            assertTrue { Currency of "USD" === Currency of "USD" }
-        }
-
-        run { // Disabling the cache
-            // resetCache() is called for testing purposes. The method is part of the internal API and can't be called
-            // by client code.
-            Currency.resetCache()
-
-            disableCache()
-
-            assertFalse { Currency of "USD" === Currency of "USD" }
-        }
     }
 }
