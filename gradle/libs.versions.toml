@@ -7,7 +7,7 @@ icu = { require = "[77.1,77.2[" }
 junit-jupiter-engine = { require = "[5.10,6.0[" }
 junit-platform-launcher = { require = "[1.10,2.0[" }
 ktor = { require = "[2.3.12,3.0[" }
-percentage = { require = "[0.2,1.0[" }
+percentage = { require = "[0.3,1.0[" }
 sonatype-central-upload = { require = "[1.0.3,2.0[" }
 
 [libraries]
