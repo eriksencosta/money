@@ -49,7 +49,7 @@ currencies.
 
 ## Supported currencies
 
-There are 306 circulating currencies available as summarized in the following table.
+There are 307 circulating currencies available as summarized in the following table.
 
 A numeric code marked with ✅ may be used to create a circulating currency object.
 
@@ -203,7 +203,7 @@ A numeric code marked with ✅ may be used to create a circulating currency obje
 | `LBP` | `422` ✅      | Lebanese Pound                            | ل.ل.‏  | Tender     | 0           |
 | `LKR` | `144` ✅      | Sri Lankan Rupee                          | රු.    | Tender     | 2           |
 | `LRD` | `430` ✅      | Liberian Dollar                           | $      | Tender     | 2           |
-| `LSL` | `426` ✅      | Lesotho Loti                              | LSL    | Tender     | 2           |
+| `LSL` | `426` ✅      | Lesotho Loti                              | M      | Tender     | 2           |
 | `LTL` | `440`        | Lithuanian Litas                          | LTL    | Historical | 2           |
 | `LTT` | `440`        | Lithuanian Talonas                        | LTT    | Historical | 2           |
 | `LUC` | `989` ✅      | Luxembourgian Convertible Franc           | LUC    | Historical | 2           |
@@ -332,7 +332,7 @@ A numeric code marked with ✅ may be used to create a circulating currency obje
 | `XBC` | `957` ✅      | European Unit of Account (XBC)            | XBC    | Other      | 2           |
 | `XBD` | `958` ✅      | European Unit of Account (XBD)            | XBD    | Other      | 2           |
 | `XCD` | `951` ✅      | East Caribbean Dollar                     | XCD    | Tender     | 2           |
-| `XCG` | `000`        | Caribbean guilder                         | XCG    | Historical | 2           |
+| `XCG` | `000`        | Caribbean guilder                         | XCG    | Tender     | 2           |
 | `XDR` | `960` ✅      | Special Drawing Rights                    | XDR    | Other      | 2           |
 | `XEU` | `954` ✅      | European Currency Unit                    | XEU    | Historical | 2           |
 | `XFO` | `000`        | French Gold Franc                         | XFO    | Historical | 2           |
@@ -359,5 +359,6 @@ A numeric code marked with ✅ may be used to create a circulating currency obje
 | `ZRN` | `180`        | Zairean New Zaire (1993–1998)             | ZRN    | Historical | 2           |
 | `ZRZ` | `180`        | Zairean Zaire (1971–1993)                 | ZRZ    | Historical | 2           |
 | `ZWD` | `716`        | Zimbabwean Dollar (1980–2008)             | ZWD    | Historical | 0           |
-| `ZWL` | `932` ✅      | Zimbabwean Dollar (2009)                  | ZWL    | Historical | 2           |
+| `ZWG` | `924` ✅      | Zimbabwean Gold                           | ZWG    | Tender     | 2           |
+| `ZWL` | `932` ✅      | Zimbabwean Dollar (2009–2024)             | ZWL    | Historical | 2           |
 | `ZWR` | `935` ✅      | Zimbabwean Dollar (2008)                  | ZWR    | Historical | 2           |

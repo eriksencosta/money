@@ -23,7 +23,7 @@
 
 package com.eriksencosta.money.currency.circulating.data
 
-// 306 currencies
+// 307 currencies
 @Suppress("LargeClass")
 internal class CurrenciesCodes {
     val codes: Set<String> get() = setOf(
@@ -331,7 +331,8 @@ internal class CurrenciesCodes {
         "ZRN", // Zairean New Zaire (1993–1998)
         "ZRZ", // Zairean Zaire (1971–1993)
         "ZWD", // Zimbabwean Dollar (1980–2008)
-        "ZWL", // Zimbabwean Dollar (2009)
+        "ZWG", // Zimbabwean Gold
+        "ZWL", // Zimbabwean Dollar (2009–2024)
         "ZWR", // Zimbabwean Dollar (2008)
     )
 }

@@ -23,10 +23,11 @@
 
 package com.eriksencosta.money.currency.circulating.data
 
-// 3 currencies
+// 4 currencies
 @Suppress("StringLiteralDuplication")
 internal class CurrenciesLookup5 {
     val currencies: Map<String, String> get() = mapOf(
+        "996" to "ESA", // Spanish Peseta (A account) available in CurrenciesData2
         "997" to "USN", // US Dollar (Next day) available in CurrenciesData5
         "998" to "USS", // US Dollar (Same day) available in CurrenciesData5
         "999" to "XXX", // Unknown Currency available in CurrenciesData6

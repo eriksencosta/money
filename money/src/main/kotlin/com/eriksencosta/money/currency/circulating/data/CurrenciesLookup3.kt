@@ -62,6 +62,7 @@ internal class CurrenciesLookup3 {
         "882" to "WST", // Samoan Tala available in CurrenciesData5
         "886" to "YER", // Yemeni Rial available in CurrenciesData6
         "894" to "ZMK", // Zambian Kwacha (1968–2012) available in CurrenciesData6
+        "924" to "ZWG", // Zimbabwean Gold available in CurrenciesData6
         "925" to "SLE", // Sierra Leonean Leone available in CurrenciesData5
         "926" to "VED", // Bolívar Soberano available in CurrenciesData5
         "927" to "UYW", // Uruguayan Nominal Wage Index Unit available in CurrenciesData5
@@ -69,13 +70,12 @@ internal class CurrenciesLookup3 {
         "929" to "MRU", // Mauritanian Ouguiya available in CurrenciesData4
         "930" to "STN", // São Tomé & Príncipe Dobra available in CurrenciesData5
         "931" to "CUC", // Cuban Convertible Peso available in CurrenciesData2
-        "932" to "ZWL", // Zimbabwean Dollar (2009) available in CurrenciesData6
+        "932" to "ZWL", // Zimbabwean Dollar (2009–2024) available in CurrenciesData6
         "933" to "BYN", // Belarusian Ruble available in CurrenciesData2
         "934" to "TMT", // Turkmenistani Manat available in CurrenciesData5
         "935" to "ZWR", // Zimbabwean Dollar (2008) available in CurrenciesData6
         "936" to "GHS", // Ghanaian Cedi available in CurrenciesData2
         "937" to "VEF", // Venezuelan Bolívar (2008–2018) available in CurrenciesData5
         "938" to "SDG", // Sudanese Pound available in CurrenciesData4
-        "940" to "UYI", // Uruguayan Peso (Indexed Units) available in CurrenciesData5
     )
 }

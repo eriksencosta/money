@@ -25,7 +25,7 @@ package com.eriksencosta.money.currency.circulating.data
 
 import com.eriksencosta.money.currency.CurrencyData
 
-// 32 currencies
+// 33 currencies
 @Suppress("MagicNumber", "MaxLineLength", "StringLiteralDuplication")
 internal class CurrenciesData6 {
     val currencies: Map<String, CurrencyData> get() = mapOf(
@@ -33,7 +33,7 @@ internal class CurrenciesData6 {
         "XBC" to CurrencyData("XBC", "957", "European Unit of Account (XBC)", "XBC", "OTHER", 2),
         "XBD" to CurrencyData("XBD", "958", "European Unit of Account (XBD)", "XBD", "OTHER", 2),
         "XCD" to CurrencyData("XCD", "951", "East Caribbean Dollar", "XCD", "TENDER", 2),
-        "XCG" to CurrencyData("XCG", "000", "Caribbean guilder", "XCG", "HISTORICAL", 2),
+        "XCG" to CurrencyData("XCG", "000", "Caribbean guilder", "XCG", "TENDER", 2),
         "XDR" to CurrencyData("XDR", "960", "Special Drawing Rights", "XDR", "OTHER", 2),
         "XEU" to CurrencyData("XEU", "954", "European Currency Unit", "XEU", "HISTORICAL", 2),
         "XFO" to CurrencyData("XFO", "000", "French Gold Franc", "XFO", "HISTORICAL", 2),
@@ -59,7 +59,8 @@ internal class CurrenciesData6 {
         "ZRN" to CurrencyData("ZRN", "180", "Zairean New Zaire (1993–1998)", "ZRN", "HISTORICAL", 2),
         "ZRZ" to CurrencyData("ZRZ", "180", "Zairean Zaire (1971–1993)", "ZRZ", "HISTORICAL", 2),
         "ZWD" to CurrencyData("ZWD", "716", "Zimbabwean Dollar (1980–2008)", "ZWD", "HISTORICAL", 0),
-        "ZWL" to CurrencyData("ZWL", "932", "Zimbabwean Dollar (2009)", "ZWL", "HISTORICAL", 2),
+        "ZWG" to CurrencyData("ZWG", "924", "Zimbabwean Gold", "ZWG", "TENDER", 2),
+        "ZWL" to CurrencyData("ZWL", "932", "Zimbabwean Dollar (2009–2024)", "ZWL", "HISTORICAL", 2),
         "ZWR" to CurrencyData("ZWR", "935", "Zimbabwean Dollar (2008)", "ZWR", "HISTORICAL", 2),
     )
 }

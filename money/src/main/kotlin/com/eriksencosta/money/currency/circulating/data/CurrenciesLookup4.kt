@@ -27,6 +27,7 @@ package com.eriksencosta.money.currency.circulating.data
 @Suppress("StringLiteralDuplication")
 internal class CurrenciesLookup4 {
     val currencies: Map<String, String> get() = mapOf(
+        "940" to "UYI", // Uruguayan Peso (Indexed Units) available in CurrenciesData5
         "941" to "RSD", // Serbian Dinar available in CurrenciesData4
         "943" to "MZN", // Mozambican Metical available in CurrenciesData4
         "944" to "AZN", // Azerbaijani Manat available in CurrenciesData1
@@ -76,6 +77,5 @@ internal class CurrenciesLookup4 {
         "993" to "BEC", // Belgian Franc (convertible) available in CurrenciesData1
         "994" to "XSU", // Sucre available in CurrenciesData6
         "995" to "ESB", // Spanish Peseta (convertible account) available in CurrenciesData2
-        "996" to "ESA", // Spanish Peseta (A account) available in CurrenciesData2
     )
 }

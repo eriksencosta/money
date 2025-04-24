@@ -41,9 +41,9 @@ internal object CurrenciesLookup {
         when (code) {
             in "004".."288" -> findCodeBySecondaryCode("Lookup1", code) { CurrenciesLookup1().currencies }
             in "292".."620" -> findCodeBySecondaryCode("Lookup2", code) { CurrenciesLookup2().currencies }
-            in "626".."940" -> findCodeBySecondaryCode("Lookup3", code) { CurrenciesLookup3().currencies }
-            in "941".."996" -> findCodeBySecondaryCode("Lookup4", code) { CurrenciesLookup4().currencies }
-            in "997".."999" -> findCodeBySecondaryCode("Lookup5", code) { CurrenciesLookup5().currencies }
+            in "626".."938" -> findCodeBySecondaryCode("Lookup3", code) { CurrenciesLookup3().currencies }
+            in "940".."995" -> findCodeBySecondaryCode("Lookup4", code) { CurrenciesLookup4().currencies }
+            in "996".."999" -> findCodeBySecondaryCode("Lookup5", code) { CurrenciesLookup5().currencies }
             else -> ""
         }
     }

@@ -64,7 +64,7 @@ internal class CurrenciesData3 {
         "LBP" to CurrencyData("LBP", "422", "Lebanese Pound", "ل.ل.‏", "TENDER", 0),
         "LKR" to CurrencyData("LKR", "144", "Sri Lankan Rupee", "රු.", "TENDER", 2),
         "LRD" to CurrencyData("LRD", "430", "Liberian Dollar", "\$", "TENDER", 2),
-        "LSL" to CurrencyData("LSL", "426", "Lesotho Loti", "LSL", "TENDER", 2),
+        "LSL" to CurrencyData("LSL", "426", "Lesotho Loti", "M", "TENDER", 2),
         "LTL" to CurrencyData("LTL", "440", "Lithuanian Litas", "LTL", "HISTORICAL", 2),
         "LTT" to CurrencyData("LTT", "440", "Lithuanian Talonas", "LTT", "HISTORICAL", 2),
         "LUC" to CurrencyData("LUC", "989", "Luxembourgian Convertible Franc", "LUC", "HISTORICAL", 2),

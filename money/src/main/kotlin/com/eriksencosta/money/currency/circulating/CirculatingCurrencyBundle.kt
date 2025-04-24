@@ -32,7 +32,7 @@ import com.eriksencosta.money.currency.circulating.data.CurrenciesLookup
 import com.eriksencosta.money.currency.circulating.data.CurrenciesSecondaryCodes
 
 internal object CirculatingCurrencyBundle : CurrencyBundle {
-    // private const val NUMBER_OF_CURRENCIES: Int = 306
+    // private const val NUMBER_OF_CURRENCIES: Int = 307
     private const val CODES_REGEX_PATTERN: String = "[A-Z]{3}"
     private const val SECONDARY_CODES_REGEX_PATTERN: String = "[0-9]{3}"
 

@@ -23,7 +23,7 @@
 
 package com.eriksencosta.money.currency.circulating.data
 
-// 306 currencies
+// 307 currencies
 @Suppress("LargeClass")
 internal class CurrenciesSecondaryCodes {
     val codes: Set<String> get() = setOf(
@@ -183,6 +183,7 @@ internal class CurrenciesSecondaryCodes {
         "886", // Yemeni Rial
         "894", // Zambian Kwacha (1968–2012)
         "901", // New Taiwan Dollar
+        "924", // Zimbabwean Gold
         "925", // Sierra Leonean Leone
         "926", // Bolívar Soberano
         "927", // Uruguayan Nominal Wage Index Unit
@@ -190,7 +191,7 @@ internal class CurrenciesSecondaryCodes {
         "929", // Mauritanian Ouguiya
         "930", // São Tomé & Príncipe Dobra
         "931", // Cuban Convertible Peso
-        "932", // Zimbabwean Dollar (2009)
+        "932", // Zimbabwean Dollar (2009–2024)
         "933", // Belarusian Ruble
         "934", // Turkmenistani Manat
         "935", // Zimbabwean Dollar (2008)
