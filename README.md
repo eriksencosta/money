@@ -15,7 +15,7 @@ repositories {
 }
 
 dependencies {
-    implementation("com.eriksencosta:money:0.1.0")
+    implementation("com.eriksencosta:money:0.2.0")
 }
 ```
 
@@ -25,7 +25,7 @@ If you're using Maven, add to your POM xml file:
 <dependency>
     <groupId>com.eriksencosta</groupId>
     <artifactId>money</artifactId>
-    <version>0.1.0</version>
+    <version>0.2.0</version>
 </dependency>
 ```
 
