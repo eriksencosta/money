@@ -76,9 +76,7 @@ detekt {
 
 testing {
     suites {
-        val performanceTest by registering(JvmTestSuite::class) {
-            testType = TestSuiteType.PERFORMANCE_TEST
-
+        register<JvmTestSuite>("performanceTest") {
             targets {
                 all {
                     testTask.configure {
@@ -285,7 +283,7 @@ tasks {
         description = "Generates the circulating currencies data classes."
         group = "Internal dataset"
 
-        classpath = runtimeClasspath()
+        classpath = gradleTaskClasspath()
         mainClass = "com.eriksencosta.money.gradle.CirculatingCurrenciesDataClassesGenerator"
 
         args(*sourceDirectories())
@@ -295,7 +293,7 @@ tasks {
         description = "Generates the cryptourrencies data classes."
         group = "Internal dataset"
 
-        classpath = runtimeClasspath()
+        classpath = gradleTaskClasspath()
         mainClass = "com.eriksencosta.money.gradle.CryptoCurrenciesDataClassesGenerator"
 
         args(*sourceDirectories())
@@ -312,7 +310,7 @@ tasks {
         description = "Generates the circulating currencies documentation."
         group = "Documentation"
 
-        classpath = runtimeClasspath()
+        classpath = gradleTaskClasspath()
         mainClass = "com.eriksencosta.money.gradle.CirculatingCurrenciesDocumentationGenerator"
 
         args(documentationDirectory())
@@ -322,7 +320,7 @@ tasks {
         description = "Generates the cryptocurrencies documentation."
         group = "Documentation"
 
-        classpath = runtimeClasspath()
+        classpath = gradleTaskClasspath()
         mainClass = "com.eriksencosta.money.gradle.CryptoCurrenciesDocumentationGenerator"
 
         args(documentationDirectory())
@@ -383,6 +381,10 @@ private fun jars() = arrayOf(jarName(), jarName("javadoc"), jarName("sources"))
 
 private fun jarName(kind: String = "") = "build/libs/$name-%s%s.jar"
     .format(version, if (kind.isNotBlank()) "-$kind" else "")
+
+private fun gradleTaskClasspath() = compileClasspath() + runtimeClasspath()
+
+private fun compileClasspath() = sourceSets.main.get().compileClasspath
 
 private fun runtimeClasspath() = sourceSets.main.get().runtimeClasspath
 
